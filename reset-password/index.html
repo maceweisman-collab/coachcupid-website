@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reset Password — CoachCupid</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #F8F6FF;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 24px;
+      padding: 40px 32px;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+      border: 1.5px solid #EDE8F7;
+      box-shadow: 0 8px 32px rgba(124, 92, 191, 0.1);
+    }
+    .logo {
+      font-size: 32px;
+      color: #7C5CBF;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .app-name {
+      font-size: 20px;
+      font-weight: 800;
+      color: #2D1F4E;
+      margin-bottom: 24px;
+    }
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid #EDE8F7;
+      border-top-color: #7C5CBF;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 20px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    h1 {
+      font-size: 22px;
+      font-weight: 800;
+      color: #2D1F4E;
+      margin-bottom: 12px;
+    }
+    p {
+      font-size: 15px;
+      color: #9080AA;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .btn {
+      display: inline-block;
+      background: #7C5CBF;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .btn:hover { opacity: 0.85; }
+    .note {
+      font-size: 13px;
+      color: #C0B8D0;
+      margin-top: 20px;
+      margin-bottom: 0;
+    }
+    .success { display: none; }
+    .error-msg { display: none; color: #E07070; font-size: 14px; margin-top: 12px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">✦</div>
+    <div class="app-name">CoachCupid</div>
+
+    <div id="loading">
+      <div class="spinner"></div>
+      <h1>Opening CoachCupid...</h1>
+      <p>We're redirecting you to the app to reset your password.</p>
+      <a id="manual-btn" class="btn" href="#">Open in App</a>
+      <p class="note">Make sure CoachCupid is installed on this device.</p>
+      <p class="error-msg" id="error-msg">
+        If the app didn't open, please open this link on your phone with CoachCupid installed.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    // Grab the full query string from the current URL
+    const search = window.location.search;
+    const hash = window.location.hash;
+    
+    // Build the deep link
+    const deepLink = 'coachcupid://reset-password' + search + hash;
+    
+    // Update the manual button
+    document.getElementById('manual-btn').href = deepLink;
+    
+    // Try to open the app automatically
+    window.location.href = deepLink;
+    
+    // After 2 seconds, if still on this page show the error hint
+    setTimeout(function() {
+      document.getElementById('error-msg').style.display = 'block';
+    }, 2000);
+  </script>
+</body>
+</html>
