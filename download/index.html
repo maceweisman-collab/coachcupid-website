@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download CoachCupid</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #2D1F4E;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .card {
+      background: rgba(255,255,255,0.07);
+      border-radius: 24px;
+      padding: 40px 32px;
+      max-width: 380px;
+      width: 100%;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .logo { font-size: 40px; color: #7C5CBF; font-weight: 800; margin-bottom: 8px; }
+    .title { font-size: 26px; font-weight: 800; color: #fff; margin-bottom: 8px; }
+    .sub { font-size: 15px; color: rgba(255,255,255,0.6); margin-bottom: 32px; line-height: 1.5; }
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 16px;
+      border-radius: 14px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      margin-bottom: 12px;
+      transition: opacity 0.2s;
+    }
+    .btn:hover { opacity: 0.85; }
+    .btn-apple { background: #000; color: #fff; }
+    .btn-google { background: #fff; color: #2D1F4E; }
+    .divider { font-size: 12px; color: rgba(255,255,255,0.3); margin: 4px 0 16px; }
+    .site { font-size: 13px; color: rgba(255,255,255,0.35); margin-top: 24px; }
+  </style>
+  <script>
+    // Auto-redirect based on device
+    function getDevice() {
+      const ua = navigator.userAgent || navigator.vendor || window.opera;
+      if (/android/i.test(ua)) return 'android';
+      if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) return 'ios';
+      return 'unknown';
+    }
+
+    window.onload = function() {
+      const device = getDevice();
+      if (device === 'ios') {
+        window.location.href = 'https://apps.apple.com/app/coachcupid/id6791794008';
+      } else if (device === 'android') {
+        window.location.href = 'https://play.google.com/store/apps/details?id=com.coachcupid.app';
+      }
+      // If unknown (desktop), show both buttons below
+    };
+  </script>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">✦</div>
+    <div class="title">CoachCupid</div>
+    <div class="sub">Real people. Real feedback. Real results.</div>
+
+    <a href="https://apps.apple.com/app/coachcupid/id6791794008" class="btn btn-apple">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+      </svg>
+      Download on App Store
+    </a>
+
+    <div class="divider">or</div>
+
+    <a href="https://play.google.com/store/apps/details?id=com.coachcupid.app" class="btn btn-google">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="#2D1F4E">
+        <path d="M3.18 23.76c.3.17.65.19.97.07l11.65-11.65L12 9.38 3.18 23.76zM20.7 10.67l-2.87-1.62-3.27 3.27 3.27 3.27 2.9-1.63c.83-.46.83-1.83-.03-2.29zM2.14.46C2.05.65 2 .87 2 1.12v21.76c0 .25.05.47.14.66L12.7 13 2.14.46zM15.8 2.95L4.15.26c-.32-.12-.67-.1-.97.07L12 9.38l3.8-6.43z"/>
+      </svg>
+      Get it on Google Play
+    </a>
+
+    <div class="site">coachcupid.app</div>
+  </div>
+</body>
+</html>
