@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog — CoachCupid</title>
+  <meta name="description" content="Dating profile tips, photo advice, prompt writing guides, and online dating insights from the CoachCupid community."/>
+
+  <style>
+    @font-face { font-display: block; font-family: Roboto; src: url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/7529907e9eaf8ebb5220c5f9850e3811.woff2) format("woff2") }
+    @font-face { font-display: fallback; font-family: Roboto; font-weight: 700; src: url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/3ef7cf158f310cf752d5ad08cd0e7e60.woff2) format("woff2") }
+    :where(.sib-form-message-panel) { display: none; }
+    #sib-container input::placeholder { font-family: Helvetica, sans-serif; text-align: left; color: #c0ccda; }
+    #sib-container a { text-decoration: underline; color: #7C5CBF; }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #fff; color: #2D1F4E; }
+
+    /* NAV */
+    .nav { background: #fff; border-bottom: 1px solid #EDE8F7; padding: 0 32px; height: 60px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo img { width: 36px; height: 36px; border-radius: 8px; }
+    .nav-logo span { font-size: 18px; font-weight: 800; color: #2D1F4E; }
+    .nav-links { display: flex; align-items: center; gap: 24px; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: #9080AA; text-decoration: none; }
+    .nav-links a:hover { color: #7C5CBF; }
+    .nav-cta { background: #7C5CBF; color: #fff !important; padding: 8px 18px; border-radius: 20px; font-weight: 700 !important; }
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* HERO */
+    .hero { background: #F8F6FF; padding: 64px 32px; text-align: center; border-bottom: 1px solid #EDE8F7; }
+    .hero-tag { display: inline-block; background: #EDE8F7; color: #7C5CBF; font-size: 12px; font-weight: 700; padding: 4px 14px; border-radius: 20px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px; }
+    .hero h1 { font-size: 42px; font-weight: 800; color: #2D1F4E; letter-spacing: -1px; margin-bottom: 12px; }
+    .hero p { font-size: 16px; color: #9080AA; max-width: 480px; margin: 0 auto; line-height: 1.7; }
+
+    /* LAYOUT */
+    .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+    .main { padding: 56px 0; }
+
+    /* POSTS */
+    .section-label { font-size: 11px; font-weight: 700; color: #A090B8; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid #EDE8F7; }
+    .post-list { display: flex; flex-direction: column; gap: 0; }
+    .post-item { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; padding: 24px 0; border-bottom: 1px solid #F8F6FF; text-decoration: none; color: inherit; transition: all 0.15s; }
+    .post-item:last-child { border-bottom: none; }
+    .post-item:hover .post-title { color: #7C5CBF; }
+    .post-content { flex: 1; }
+    .post-tag { display: inline-block; background: #EDE8F7; color: #7C5CBF; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .post-title { font-size: 20px; font-weight: 800; color: #2D1F4E; margin-bottom: 6px; line-height: 1.3; transition: color 0.15s; }
+    .post-excerpt { font-size: 14px; color: #9080AA; line-height: 1.6; margin-bottom: 10px; }
+    .post-meta { font-size: 12px; color: #C0B8D0; }
+    .post-arrow { font-size: 20px; color: #EDE8F7; margin-top: 4px; flex-shrink: 0; }
+    .post-item:hover .post-arrow { color: #7C5CBF; }
+
+    /* COMING SOON POSTS */
+    .post-item.coming-soon { opacity: 0.5; cursor: default; pointer-events: none; }
+    .coming-tag { background: #F8F6FF; color: #C0B8D0; }
+
+    /* NEWSLETTER */
+    .newsletter-section { background: #2D1F4E; border-radius: 20px; padding: 48px 40px; margin: 56px 0; }
+    .newsletter-inner { max-width: 480px; margin: 0 auto; }
+    .newsletter-section .sib-form { background: transparent !important; text-align: left !important; }
+    .newsletter-section #sib-container { background-color: transparent !important; border: none !important; max-width: 100% !important; text-align: left !important; }
+    .newsletter-section .sib-form-block__button { border-radius: 12px !important; padding: 14px 28px !important; font-size: 15px !important; width: 100%; text-align: center !important; margin-top: 8px; }
+    .newsletter-section input.input { background: rgba(255,255,255,0.1) !important; border: 1.5px solid rgba(255,255,255,0.2) !important; border-radius: 12px !important; color: #fff !important; padding: 14px !important; font-size: 15px !important; width: 100% !important; }
+    .newsletter-section input.input::placeholder { color: rgba(255,255,255,0.4) !important; }
+    .newsletter-section label.entry__label { color: rgba(255,255,255,0.7) !important; font-size: 13px !important; margin-bottom: 8px !important; }
+    .newsletter-section label.entry__specification { color: rgba(255,255,255,0.3) !important; }
+    .newsletter-tag { display: inline-block; background: rgba(124,92,191,0.3); color: #C4B0E8; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; }
+    .newsletter-title { font-size: 28px; font-weight: 800; color: #fff; margin-bottom: 8px; letter-spacing: -0.5px; }
+    .newsletter-sub { font-size: 14px; color: rgba(255,255,255,0.6); margin-bottom: 24px; line-height: 1.6; }
+
+    /* FOOTER */
+    .footer { background: #F8F6FF; border-top: 1px solid #EDE8F7; padding: 32px; text-align: center; }
+    .footer-logo { font-size: 16px; font-weight: 800; color: #7C5CBF; margin-bottom: 8px; }
+    .footer-links { display: flex; gap: 20px; justify-content: center; margin-bottom: 12px; }
+    .footer-links a { font-size: 13px; color: #9080AA; text-decoration: none; }
+    .footer-links a:hover { color: #7C5CBF; }
+    .footer-copy { font-size: 12px; color: #C0B8D0; }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 28px; }
+      .nav-links { display: none; }
+      .newsletter-section { padding: 32px 24px; }
+      .post-title { font-size: 17px; }
+    }
+  </style>
+  <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="https://coachcupid.app" class="nav-logo">
+    <img src="https://coachcupid.app/assets/icon.png" alt="CoachCupid" onerror="this.style.display='none'"/>
+    <span>CoachCupid</span>
+  </a>
+  <div class="nav-links">
+    <a href="https://coachcupid.app">Home</a>
+    <a href="https://coachcupid.app/blog">Blog</a>
+    <a href="https://coachcupid.app/download" class="nav-cta">Download App</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">✦ The CoachCupid Blog</div>
+  <h1>Dating advice that actually helps.</h1>
+  <p>Profile tips, photo advice, prompt writing guides, and honest insights into online dating — from real people.</p>
+</div>
+
+<!-- MAIN -->
+<div class="container">
+  <div class="main">
+
+    <div class="section-label">Latest Posts</div>
+
+    <div class="post-list">
+
+      <!-- POST 1 -->
+      <a href="#" class="post-item coming-soon">
+        <div class="post-content">
+          <span class="post-tag coming-tag">Coming Soon</span>
+          <div class="post-title">The Dark Truth About Dating Profiles Nobody Tells You</div>
+          <div class="post-excerpt">Most people are unknowingly sabotaging their own chances. Here's what your profile is really saying — and how to fix it.</div>
+          <div class="post-meta">CoachCupid · Coming soon</div>
+        </div>
+        <div class="post-arrow">→</div>
+      </a>
+
+      <!-- POST 2 -->
+      <a href="#" class="post-item coming-soon">
+        <div class="post-content">
+          <span class="post-tag coming-tag">Coming Soon</span>
+          <div class="post-title">The Secret Killers of Your Dating Profile</div>
+          <div class="post-excerpt">You might be making these mistakes without even knowing it. Small changes that make a massive difference in your match rate.</div>
+          <div class="post-meta">CoachCupid · Coming soon</div>
+        </div>
+        <div class="post-arrow">→</div>
+      </a>
+
+      <!-- POST 3 -->
+      <a href="#" class="post-item coming-soon">
+        <div class="post-content">
+          <span class="post-tag coming-tag">Coming Soon</span>
+          <div class="post-title">How to Take a Dating Profile Photo That Actually Works</div>
+          <div class="post-excerpt">Lighting, angles, expression — a complete guide to taking photos that get swipes. No photographer required.</div>
+          <div class="post-meta">CoachCupid · Coming soon</div>
+        </div>
+        <div class="post-arrow">→</div>
+      </a>
+
+      <!-- POST 4 -->
+      <a href="#" class="post-item coming-soon">
+        <div class="post-content">
+          <span class="post-tag coming-tag">Coming Soon</span>
+          <div class="post-title">How to Write Dating App Prompts That Start Real Conversations</div>
+          <div class="post-excerpt">Stop writing boring prompts. Here's how to write answers that make people want to message you first.</div>
+          <div class="post-meta">CoachCupid · Coming soon</div>
+        </div>
+        <div class="post-arrow">→</div>
+      </a>
+
+      <!-- POST 5 -->
+      <a href="#" class="post-item coming-soon">
+        <div class="post-content">
+          <span class="post-tag coming-tag">Coming Soon</span>
+          <div class="post-title">The Gender Disparity in Online Dating — and What It Means for Your Profile</div>
+          <div class="post-excerpt">Men match 5% of the time. Women get overwhelmed with messages. Here's the data behind online dating's brutal reality.</div>
+          <div class="post-meta">CoachCupid · Coming soon</div>
+        </div>
+        <div class="post-arrow">→</div>
+      </a>
+
+    </div>
+
+    <!-- NEWSLETTER -->
+    <div class="newsletter-section">
+      <div class="newsletter-inner">
+        <div class="newsletter-tag">✦ Newsletter</div>
+        <div class="newsletter-title">Get dating tips in your inbox.</div>
+        <div class="newsletter-sub">New posts, profile advice, and CoachCupid updates — delivered straight to you. No spam, ever.</div>
+
+        <div class="sib-form" style="text-align:left; background-color:transparent;">
+          <div id="sib-form-container" class="sib-form-container">
+            <div id="error-message" class="sib-form-message-panel" style="font-family:Helvetica,sans-serif;font-size:14px;color:#661d1d;background-color:#ffeded;border-color:#ff4949;border-radius:8px;max-width:100%;">
+              <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                <span class="sib-form-message-panel__inner-text">Your subscription could not be saved. Please try again.</span>
+              </div>
+            </div>
+            <div id="success-message" class="sib-form-message-panel" style="font-family:Helvetica,sans-serif;font-size:14px;color:#085229;background-color:#e7faf0;border-color:#13ce66;border-radius:8px;max-width:100%;">
+              <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                <span class="sib-form-message-panel__inner-text">You're subscribed! Welcome to the CoachCupid community. ✦</span>
+              </div>
+            </div>
+            <div id="sib-container" class="sib-container--large sib-container--vertical" style="max-width:100%;text-align:left;background-color:transparent;border:none;direction:ltr">
+              <form id="sib-form" method="POST" action="https://8af2f61e.sibforms.com/serve/MUIFAGby7G5eJST8KK3A1izimZPLD7i4adzNIibYQDhADqhlfsCp9-_pTdF-OLF_A689EhVNO_4CuOjs4Odx8bTKSfElDn7g0l0867ZAfwKFGN-DCxpJGXkFmXQYoA8sVmCbItppaZ8BvxDv-xL574f6acjXhoC4IB9Ae4eH9Okm2YVQHsPmidSUyy7jIjp57cA6wKeqDIBJhIvY6w==" data-type="subscription">
+                <div style="padding:8px 0;">
+                  <div class="sib-input sib-form-block">
+                    <div class="form__entry entry_block">
+                      <div class="form__label-row">
+                        <div class="entry__field">
+                          <input class="input" type="text" id="EMAIL" name="EMAIL" autocomplete="off" value="" placeholder="your@email.com" data-required="true" required style="width:100%;padding:14px;border-radius:12px;border:1.5px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.1);color:#fff;font-size:15px;"/>
+                        </div>
+                      </div>
+                      <label class="entry__error entry__error--primary" style="font-family:Helvetica,sans-serif;font-size:13px;color:#ff4949;"></label>
+                    </div>
+                  </div>
+                </div>
+                <div style="padding:8px 0;">
+                  <div class="sib-form-block" style="text-align:left">
+                    <button class="sib-form-block__button sib-form-block__button-with-loader" style="font-family:Helvetica,sans-serif;font-size:15px;font-weight:700;color:#2D1F4E;background-color:#FFD700;border-width:0;border-radius:12px;padding:14px 28px;width:100%;cursor:pointer;" form="sib-form" type="submit">
+                      <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512" style="width:16px;height:16px;margin-right:8px;">
+                        <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z" />
+                      </svg>
+                      Subscribe — it's free ✦
+                    </button>
+                  </div>
+                </div>
+                <input type="text" name="email_address_check" value="" class="input--hidden">
+                <input type="hidden" name="locale" value="en">
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-logo">✦ CoachCupid</div>
+  <div class="footer-links">
+    <a href="https://coachcupid.app">Home</a>
+    <a href="https://coachcupid.app/download">Download</a>
+    <a href="https://coachcupid.app/privacy-policy">Privacy Policy</a>
+    <a href="https://www.instagram.com/coachcupid.app">Instagram</a>
+    <a href="https://www.tiktok.com/@coachcupid.app">TikTok</a>
+  </div>
+  <div class="footer-copy">© 2026 CoachCupid LLC · Baltimore, MD</div>
+</div>
+
+<script>
+  window.REQUIRED_CODE_ERROR_MESSAGE = 'Please choose a country code';
+  window.LOCALE = 'en';
+  window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
+  window.REQUIRED_ERROR_MESSAGE = "This field cannot be left blank.";
+  window.GENERIC_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
+  window.INVALID_NUMBER = "The information provided is invalid. Please review the field format and try again.";
+  window.INVALID_DATE = "Please enter a valid date";
+  window.REQUIRED_MULTISELECT_MESSAGE = 'Please select at least 1 option';
+  window.translation = { common: { selectedList: '{quantity} list selected', selectedLists: '{quantity} lists selected' } };
+  var AUTOHIDE = Boolean(0);
+</script>
+<script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+
+</body>
+</html>
