@@ -115,7 +115,7 @@
         .map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`)
         .join('&');
  
-      const deepLink = `coachcupid://confirm?${paramStr}`;
+      const deepLink = `coachcupid:///confirm?${paramStr}`;
  
       // Try to open the app
       window.location.href = deepLink;
